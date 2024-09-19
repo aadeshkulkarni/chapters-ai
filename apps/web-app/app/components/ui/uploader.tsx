@@ -3,6 +3,11 @@ import { uploadToS3 } from "@/utils/fileUpload";
 import executeInBackground from "@/app/worker/worker";
 import { Card, CardContent } from "@/app/components/ui/card";
 
+import maze from '@/public/purp.png';
+import wave from '@/public/wave3.jpg';
+
+
+
 const create = async (formData: FormData) => {
   "use server";
   console.log("dump");
@@ -22,10 +27,14 @@ const create = async (formData: FormData) => {
 
 export default function Uploader() {
   return (
-    <section className="min-h-screen w-full flex items-center justify-center p-8 overflow-hidden absolute inset-0 -z-10 h-full px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#111_40%,#63e_100%)]">
+    // <section className="min-h-screen w-full flex items-center justify-center p-8 overflow-hidden absolute inset-0 -z-10 h-full px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#111_40%,#63e_100%)]">
+    <section
+      className="min-h-screen w-full flex items-center justify-center p-8 overflow-hidden absolute inset-0 -z-10 px-5 py-24 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${wave.src})` }}
+    >
 
       <Card className="w-full max-w-md mx-auto bg-white/10 backdrop-blur-sm border-white/20 shadow-xl">
-        <CardContent>
+        <CardContent className="py-5">
           <form action={create}>
             <div className="py-2">
               <label className="block mb-2 pt-2 text-md font-medium text-white/90">
